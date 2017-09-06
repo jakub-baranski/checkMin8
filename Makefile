@@ -8,7 +8,6 @@ install:
 	virtualenv venv -p python3
 	${shell . venv/bin/activate}
 	venv/bin/pip install -r requirements.txt
-	make addcron
 
 test:
 	$(if $(findstring virtualenv,$(virtualenv_v)),\
