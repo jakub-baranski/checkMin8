@@ -11,3 +11,4 @@ while ! python3 main.py; do
     sleep 15
 done
 deactivate
+gedit menu.txt
