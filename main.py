@@ -4,7 +4,6 @@ import datetime
 import json
 
 from subprocess import call
-import requests
 
 with open('config.json', 'r') as config_file:
     TOKEN = json.loads(config_file.read())['access_token']
@@ -26,4 +25,5 @@ def get_feed():
             sys.exit(0)
     sys.exit(1)
 
-get_feed()
+if __name__ == '__main__':
+    get_feed()
