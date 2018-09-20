@@ -1,6 +1,6 @@
 #!/bin/sh
 export DISPLAY=:0
-cd /home/kuba/Documents/projects/checkMin8
+cd ${0%/*}/..
 echo 'Activating venv'
 . venv/bin/activate
 
@@ -12,7 +12,7 @@ while ! python3 main.py; do
 	then
 		break
 	fi
-    sleep 15
+    sleep 5
 done
 echo 'got menu'
 echo 'deactivating venv'

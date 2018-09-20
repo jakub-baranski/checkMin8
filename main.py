@@ -5,6 +5,8 @@ import json
 
 from subprocess import call
 
+checkPhrases = ['tu zjesz', 'na wynos']
+
 
 with open('config.json', 'r') as config_file:
     TOKEN = json.loads(config_file.read())['access_token']
@@ -18,7 +20,7 @@ def get_feed():
     post = response.json()['data'][0]
     post_time = datetime.datetime.strptime(post['created_time'], '%Y-%m-%dT%H:%M:%S%z')
     if post_time.date() == datetime.datetime.now().date():
-        if 'tu zjesz' in post['message'].lower():
+        if any(phrase in post['message'].lower() for phrase in checkPhrases):
             with open('/tmp/menu.txt', 'w') as menu_file:
                 menu_file.write(post['message'])
             send_notification()
